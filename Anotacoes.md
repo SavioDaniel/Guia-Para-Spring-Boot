@@ -37,5 +37,75 @@
 ```java
 ArrayList<String> lista = new ArrayList<>();
 
-lista.add = 
+lista.add = ("Java");
+lista.add = ("HTML");
 ```
+- com esse método é possível colocar um item a sua lista.
+
+```java
+lista.add = (index: 1, element: "Phyton");
+```
+- Assim é possivel determinar a posição que o seu elemento vai ocupar.
+
+```java
+lista.addFirst = ("C#");
+lista.addLast = ("JavaScript");
+```
+- Com esses dois comandos é possivel colocar elementos no inico ou no fim.
+
+<span style="color:red;">obs: Essa notação é exclusiva do LinkedList, Por isso ela é tratada como mais rapido na hora de inserir o elemento.</span>
+
+_______________________________________________________________________________________________________________________________________
+
+# REMOVE (int index)
+Você diz ao Java: "Remova quem estiver na cadeira número X".
+
+- ArrayList: É mais lento, pois após remover o item, todos os elementos à direita precisam "dar um passo para a esquerda" para não deixar buracos.
+
+- LinkedList: O Java precisa caminhar até o índice (o que é lento), mas a remoção em si é rápida (só desconecta os ponteiros).
+
+```java
+Lista.remove(0);
+```
+- Esse comendo é usado para remover o primeiro comando da lista.
+
+
+# REMOVE (Object o)
+Você diz: "Procure o objeto 'João' e remova-o".
+
+- O Java percorre a lista do início ao fim procurando o item. Se houver dois "João", apenas o primeiro encontrado será removido. Retorna true se encontrou e removeu, ou false se não existia na lista.
+
+```java
+lista.remove("Java");
+```
+- Procura o texto "Java" e remove
+
+# removeAll(Collection c)
+
+Serve para remover de uma vez só todos os itens que estão em outra coleção. É como uma "limpeza por filtro".
+
+- Se você tem uma lista de frutas e uma lista de "frutas estragadas", você usa listaFrutas.removeAll(estragadas).
+
+```java
+List<Integer> removerEsses = Arrays.asList(10, 20, 30);
+numeros.removeAll(removerEsses);
+```
+- Tira todos os 10, 20 e 30 da lista de uma vez
+
+# clear() — O Botão de Reset
+
+- ste método esvazia a lista completamente. Ela continua existindo (o objeto não é deletado), mas o seu tamanho (size()) passa a ser 0.
+```java
+lista.clear(); // A lista agora está vazia: []
+```
+
+# Comparativo de Performance (Remoção)
+
+| Método | ArrayList | LinkedList |
+|--------|-----------|------------|
+| remove(0) (Início) | Lento (move todos) | Muito Rápido |
+| remove(index) (Meio) | Lento (move metade) | Lento (tem que achar o nó) |
+| remove(ultimo) | Muito Rápido | Muito Rápido |
+| clear() | Rápido | Rápido |
+
+**Exportar para as Planilhas**
