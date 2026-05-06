@@ -108,4 +108,43 @@ lista.clear(); // A lista agora está vazia: []
 | remove(ultimo) | Muito Rápido | Muito Rápido |
 | clear() | Rápido | Rápido |
 
-**Exportar para as Planilhas**
+_______________________________________________________________________________________________________________________________________
+
+# Set
+
+- De forma resumida, ele serve para armazenar elementos únicos, sem repetição.
+
+- Por exemplo. se eu for fazer um set String. para colocar nome de frutas. e entre elas eu repetir o nome maçã 3 vezes, quando eu printar a tela, o nome maçã so ira aparecer uma unicar vez. Essa é a principal diferença para <span style="color:red"> Liste. </span>
+
+## Diferença de Set para List
+
+- Como eu explique anteriormente, em List, pode repetir as palavras, ja em set não pode acontecer. 
+  
+# ✅ Quando usar `Set` ou `List`?
+
+## 🔵 Use `List` quando:
+
+| Critério | `List` |
+|----------|--------|
+| Elementos repetidos | ✅ Pode ter |
+| Acesso por posição (índice) | ✅ Sim |
+| Ordem de inserção | ✅ Preservada |
+| Modificar elementos específicos | ✅ Sim |
+
+## 🟢 Use `Set` quando:
+
+| Critério | `Set` |
+|----------|-------|
+| Elementos repetidos | ❌ Não querer |
+| Apenas saber se existe ou não | ✅ Ideal |
+| Operações matemáticas de conjuntos | ✅ Sim |
+| Ordem importante | ❌ Não é importante |
+
+---
+
+## 📋 Resumo rápido
+
+| Situação | Escolha |
+|----------|---------|
+| Sem repetições + teste de existência + operações de conjunto + ordem não importa | `Set` |
+| Com repetições + acesso por índice + ordem importante + modificação por posição | `List` |
