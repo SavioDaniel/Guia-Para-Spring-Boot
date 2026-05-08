@@ -108,8 +108,7 @@ lista.clear(); // A lista agora está vazia: []
 | remove(ultimo) | Muito Rápido | Muito Rápido |
 | clear() | Rápido | Rápido |
 
-_______________________________________________________________________________________________________________________________________
-
+____________________________________________________________________________________________________
 # Set
 
 - De forma resumida, ele serve para armazenar elementos únicos, sem repetição.
@@ -148,3 +147,18 @@ ________________________________________________________________________________
 |----------|---------|
 | Sem repetições + teste de existência + operações de conjunto + ordem não importa | `Set` |
 | Com repetições + acesso por índice + ordem importante + modificação por posição | `List` |
+
+
+____________________________________________________________________________________________________
+
+
+# Streams API - Filter
+- o filter é o elemento mais usado do streams api. Ele serve para filtrar elementos de uma coleção, conteudo que estudamos anteriormente. 
+- Ele vai "Substituir o for" Antes quando iriamos imprimir os elementos da lista. não existia nenhum controle, o filtro não estava lá. era mais ou menos assim.
+```java
+for (Carro carroImprimir : carros) {
+        System.out.println(carroImprimir);
+    }
+```
+- O resultado seria a lista completa. 
+### COMO É A ESTRUTURA DO FILTER?
