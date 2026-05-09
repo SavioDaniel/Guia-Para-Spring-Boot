@@ -162,3 +162,317 @@ for (Carro carroImprimir : carros) {
 ```
 - O resultado seria a lista completa. 
 ### COMO É A ESTRUTURA DO FILTER?
+
+
+____________________________________________________________________________________________________
+# map() — Streams API Java
+
+O `map()` é uma operação intermediária da Streams API usada para
+TRANSFORMAR elementos.
+
+Ele pega cada item do Stream e converte para outro valor.
+
+---
+
+# Sintaxe
+
+```java
+stream.map(x -> transformação)
+```
+
+---
+
+# Exemplo básico
+
+```java
+List<String> nomes = List.of("joao", "maria", "ana");
+
+List<String> maiusculos = nomes.stream()
+        .map(nome -> nome.toUpperCase())
+        .toList();
+
+System.out.println(maiusculos);
+```
+
+## Saída
+
+```java
+[JOAO, MARIA, ANA]
+```
+
+---
+
+# O que aconteceu?
+
+O `map()` pegou cada elemento:
+
+```java
+joao
+maria
+ana
+```
+
+E transformou em:
+
+```java
+JOAO
+MARIA
+ANA
+```
+
+---
+
+# Visualmente
+
+```text
+Stream original
+["joao", "maria", "ana"]
+
+↓
+
+map(nome -> nome.toUpperCase())
+
+↓
+
+Novo Stream
+["JOAO", "MARIA", "ANA"]
+```
+
+---
+
+# Outro exemplo — dobrando números
+
+```java
+List<Integer> numeros = List.of(1, 2, 3, 4);
+
+List<Integer> dobro = numeros.stream()
+        .map(n -> n * 2)
+        .toList();
+
+System.out.println(dobro);
+```
+
+## Saída
+
+```java
+[2, 4, 6, 8]
+```
+
+---
+
+# Transformando tipos
+
+O `map()` também pode transformar um tipo em outro.
+
+---
+
+## Exemplo:
+String → Integer
+
+```java
+List<String> numeros = List.of("1", "2", "3");
+
+List<Integer> inteiros = numeros.stream()
+        .map(n -> Integer.parseInt(n))
+        .toList();
+
+System.out.println(inteiros);
+```
+
+## Saída
+
+```java
+[1, 2, 3]
+```
+
+---
+
+# Exemplo MUITO usado no backend
+
+Imagine uma classe:
+
+```java
+class Usuario {
+    String nome;
+    int idade;
+
+    public Usuario(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+```
+
+---
+
+## Pegando apenas nomes
+
+```java
+List<Usuario> usuarios = List.of(
+        new Usuario("João", 20),
+        new Usuario("Maria", 25),
+        new Usuario("Ana", 30)
+);
+
+List<String> nomes = usuarios.stream()
+        .map(usuario -> usuario.getNome())
+        .toList();
+
+System.out.println(nomes);
+```
+
+## Saída
+
+```java
+[João, Maria, Ana]
+```
+
+---
+
+# Resumindo
+
+O `map()` serve para:
+
+- transformar dados
+- modificar valores
+- converter tipos
+- extrair propriedades de objetos
+
+---
+
+# Diferença entre map() e filter()
+
+## filter()
+
+FILTRA elementos.
+
+```java
+.filter(n -> n > 10)
+```
+
+---
+
+## map()
+
+TRANSFORMA elementos.
+
+```java
+.map(n -> n * 2)
+```
+
+---
+
+# Exemplo combinando os dois
+
+```java
+List<Integer> numeros = List.of(5, 10, 15, 20);
+
+List<Integer> resultado = numeros.stream()
+        .filter(n -> n > 10)
+        .map(n -> n * 2)
+        .toList();
+
+System.out.println(resultado);
+```
+
+## Saída
+
+```java
+[30, 40]
+```
+
+---
+
+# Fluxo mental
+
+```text
+Lista original
+[5, 10, 15, 20]
+
+↓
+
+filter(n > 10)
+[15, 20]
+
+↓
+
+map(n * 2)
+[30, 40]
+```
+
+---
+
+# Operações comuns com map()
+
+| Operação | Exemplo |
+|---|---|
+| Maiúsculo | `.map(String::toUpperCase)` |
+| Minúsculo | `.map(String::toLowerCase)` |
+| Dobrar número | `.map(n -> n * 2)` |
+| Extrair nome | `.map(Usuario::getNome)` |
+| Converter String para Integer | `.map(Integer::parseInt)` |
+
+---
+
+# Dica importante
+
+O `map()` NÃO altera a lista original.
+
+Ele cria um NOVO Stream transformado.
+
+---
+
+# Forma moderna (Method Reference)
+
+Ao invés disso:
+
+```java
+.map(nome -> nome.toUpperCase())
+```
+
+Você pode usar:
+
+```java
+.map(String::toUpperCase)
+```
+
+Fica mais limpo e profissional.
+
+---
+
+# Exemplo final completo
+
+```java
+List<String> nomes = List.of("joao", "maria", "ana");
+
+List<String> resultado = nomes.stream()
+        .filter(nome -> nome.startsWith("j"))
+        .map(String::toUpperCase)
+        .toList();
+
+System.out.println(resultado);
+```
+
+## Saída
+
+```java
+[JOAO]
+```
+
+---
+
+# Conclusão
+
+O `map()` é uma das funções MAIS IMPORTANTES da Streams API.
+
+Você vai usar MUITO em:
+- Spring Boot
+- APIs REST
+- transformação de DTO
+- banco de dados
+- listas de objetos
+- backend em geral
